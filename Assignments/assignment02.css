@@ -42,10 +42,12 @@ span.c {
 img[alt="dog icon"] {
   bottom:150px;
   right:50px;
+  position:relative;
 }
 img[alt="bird icon"] {
   top:50px;
   left:250px;
+  position:absolute;
 }
 positionme {
   background-color:orange;
