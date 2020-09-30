@@ -33,12 +33,15 @@ span.b {
 
 span.c {
   display:inline-block;
-  word-wrap:normal;
 }
   img[alt="cat icon"] {
   bottom:0;
   right:0;
   position:fixed;
+}
+img[alt="dog icon"] {
+  bottom:150px;
+  right:50px;
 }
 
 
