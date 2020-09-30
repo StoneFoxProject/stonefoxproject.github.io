@@ -11,6 +11,18 @@ body {
 div {
   marigin-bottom:50px;
 }
+span{
+  width:100px;
+  height:50px;
+  padding-left:20px;
+  padding-right:20px;
+  padding-top:5px;
+  padding-bottom:5px;
+  background-color:yellow;
+  border-type:solid;
+  border-width:5px;
+  border-color:blue;
+}
 
 
 
