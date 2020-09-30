@@ -11,7 +11,7 @@ body {
 div {
   marigin-bottom:50px;
 }
-span{
+span {
   width:100px;
   height:50px;
   padding-left:20px;
@@ -23,6 +23,19 @@ span{
   border-width:5px;
   border-color:blue;
 }
+span.a {
+  display:inline;
+}
+
+span.b {
+  display:block;
+}
+
+span.c {
+  display:inline-block;
+  word-wrap:normal;
+}
+  
 
 
 
