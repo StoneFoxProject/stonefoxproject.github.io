@@ -44,13 +44,13 @@ img[alt="dog icon"] {
   right:50px;
   position:relative;
 }
-#positionme {
-  background-color:orange;
-}
 img[alt="bird icon"] {
   top:1650px;
   left:250px;
   position:absolute;
+}
+#positionme {
+  background-color:orange;
 }
 nav {
   top:0;
