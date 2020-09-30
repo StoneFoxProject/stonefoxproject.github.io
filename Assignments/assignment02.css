@@ -43,7 +43,21 @@ img[alt="dog icon"] {
   bottom:150px;
   right:50px;
 }
-
+img[alt="bird icon"] {
+  top:50px;
+  left:250px;
+}
+positionme {
+  background-color:orange;
+}
+nav {
+  top:0;
+  position:sticky;
+  background-color:lime;
+  opacity:0.9;
+  padding:5px;
+  font-size:20px;
+}
 
 
 /* --- pre-existing css --- */
