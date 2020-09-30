@@ -88,9 +88,9 @@
 </ul>
 <hr />
   <p>Table 1. How to turn $48,000 into $1,000,000.</p>
-  <table border="1" width="100%">
-<thead>
-  <tr>
+  <table class="stripey">
+  <thead>
+   <tr>
     <th>Initial</th>
     <th>Monthly</th>
     <th>Years</th>
@@ -98,14 +98,17 @@
     <th>Savings</th>
   </tr>
 </thead>
-<tbody>
-  <tr>
+<tbody class="mousey"> 
+ <tr class="rightey"> 	  
+  <tbody>
+    <tr>
     <td>100</td>
     <td>100</td>
     <td>10 years</td>
     <td>10%</td>
     <td>45,923.81</td>
   </tr>
+<tr class="rightey">   
   <tr>
     <td>100</td>
     <td>100</td>
@@ -113,6 +116,7 @@
     <td>10%</td>
     <td>139,100.92</td>
   </tr>
+<tr class="rightey">   
   <tr>
     <td>100</td>
     <td>100</td>
@@ -120,6 +124,7 @@
     <td>10%</td>
     <td>380,778.35</td>
   </tr>
+<tr class="rightey"> 	  
   <tr>
     <td>100</td>
     <td>100</td>
@@ -132,21 +137,24 @@
   <br />
   
 <form accept-charset="UTF-8" action="action_page.php" autocomplete="off" method="GET" target="_blank">
-	<fieldset>
-	<legend>Survey Respondent</legend>
-	<label for="fname">First Name</label>
+ <fieldset>
+  <legend>Survey Respondent</legend>
+  <label for="fname">First Name</label>
   <br /> 
-  <input name="fname" type="text" placeholder="Chris" /> 
+  <input class="pinky" name="fname" type="text" placeholder="Chris" /> 
   <br /> 
-  <label for="lname">Last Name</label>   <br /> 
-	<input name="lname" type="text" placeholder="Jones" /> 
-  <br /> <br /> 
-    <label for="member">Membership Status</label> 
-    <br />
-	<input checked="checked" name="member" type="radio" value="member" /> Member <br /> 
-	<input name="member" type="radio" value="nonmember" /> Nonmember <br />  <br /> 
-	<button type="submit" value="Submit">Submit</button>
-	</fieldset>
+  <label for="lname">Last Name</label>   
+  <br /> 
+  <input class="pinky" name="lname" type="text" placeholder="Jones" /> 
+  <br /> 
+  <br /> 
+  <label for="member">Membership Status</label> 
+  <br />
+  <input checked="checked" name="member" type="radio" value="member" /> Member 
+  <br /> 
+  <input name="member" type="radio" value="nonmember" /> Nonmember <br />  <br /> 
+  <button type="submit" value="Submit">Submit</button>
+ </fieldset>
 </form>
   
 </section>
