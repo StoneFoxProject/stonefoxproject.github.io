@@ -35,7 +35,11 @@ span.c {
   display:inline-block;
   word-wrap:normal;
 }
-  
+  img[alt="cat icon"] {
+  bottom:0;
+  right:0;
+  position:fixed;
+}
 
 
 
