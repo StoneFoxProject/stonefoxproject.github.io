@@ -1,6 +1,7 @@
 let elem = [];
+let lines=document.getElementsByTagName("tr");
 
-for( let i=1;i<18;i++){
+for( let i=1;i<lines.length;i++){
 	elem[i]= document.getElementById(i);
 	elem[i].children[4].children[0].onclick = function(){
 	add1(elem[i]);
