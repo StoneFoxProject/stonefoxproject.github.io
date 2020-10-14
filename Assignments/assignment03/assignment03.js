@@ -17,5 +17,13 @@ function add1 (elem) {
     let currentScore = elem.children[2].innerHTML;
     currentScore = Number.parseInt(currentScore);
     elem.children[2].innerHTML = currentScore + 1;
+	diff(elem);
   }
+}
+function diff(elem) {
+    let currentScore = elem.children[2].innerHTML;
+    currentScore = Number.parseInt(currentScore);
+    let par = elem.children[1].innerHTML;
+    par = Number.parseInt(par);
+    elem.children[3].innerHTML = currentScore - par;
 }
