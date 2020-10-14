@@ -13,7 +13,7 @@ elem[1].children[4].children[0].onclick
   = function(){add1(elem[1]);};
 
 // create an "add1" function
-add1=(elem)=> {
+let add1=(elem)=> {
   if(elem.children[2].innerHTML == "-") 
     elem.children[2].innerHTML = "1";
   else {
