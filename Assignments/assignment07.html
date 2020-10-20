@@ -8,7 +8,7 @@
     margin: 0;
   }
 
-  body {
+  .snake {
     background: black;
     display: flex;
     align-items: center;
@@ -26,8 +26,10 @@
 <body> 
   <div class="text">
     <h1>Use arrow keys to play</h1>
+  </div>
+  <div class="snake">
+    <canvas width="400" height="400" id="game"></canvas>
   </div>  
-<canvas width="400" height="400" id="game"></canvas>
 <script>
 var canvas = document.getElementById('game');
 var context = canvas.getContext('2d');
