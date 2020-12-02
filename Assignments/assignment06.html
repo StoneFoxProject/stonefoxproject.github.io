@@ -15,7 +15,7 @@
       }
     </style>
   </head>
-  <body onload="loadDoc();">
+  <!--<body> onload="loadDoc();" --> <!--//ready function removes need for this-->
     <div class="container">
       <form>
         <h1>College Debt Estimator (NOT FINISHED)
@@ -178,7 +178,7 @@
 	<script>
 		// --- global variables ---
 
-var loans = [
+let loans = [
   { loan_year: 2020, loan_amount: 10000.00, loan_int_rate: 0.0453 },
   { loan_year: 2021, loan_amount: 10000.00, loan_int_rate: 0.0453 },
   { loan_year: 2022, loan_amount: 10000.00, loan_int_rate: 0.0453 },
@@ -188,33 +188,35 @@ var loans = [
 
 // --- function: loadDoc() ---
 
-function loadDoc() {
+//function loadDoc() {
+$(document).ready(function(){ //add the ready function 
   
   // pre-fill defaults for first loan year
+  //getting rid of js get element by id with $, convert rest.
   var defaultYear = loans[0].loan_year;
-  document.getElementById("loan_year0" + 1).value = defaultYear++;
+  $("#loan_year0" + 1).val(defaultYear++);
   var defaultLoanAmount = loans[0].loan_amount;
-  document.getElementById("loan_amt0" + 1).value = defaultLoanAmount.toFixed(2);
+  $("#loan_amt0" + 1).val(defaultLoanAmount.toFixed(2));
   var defaultInterestRate = loans[0].loan_int_rate;
-  document.getElementById("loan_int0" + 1).value = defaultInterestRate;
+  $("#loan_int0" + 1).val(defaultInterestRate);
   var loanWithInterest = loans[0].loan_amount * (1 + loans[0].loan_int_rate);
-  document.getElementById("loan_bal0" + 1).innerHTML = toComma(loanWithInterest.toFixed(2));
-  
+  $("#loan_bal0" + 1).text(toComma(loanWithInterest.toFixed(2)));
+  //-----------------------------------------------------------
   // pre-fill defaults for other loan years
   for(var i=2; i<6; i++) {
-    document.getElementById("loan_year0" + i).value = defaultYear++;
-    document.getElementById("loan_year0" + i).disabled = true;
-    document.getElementById("loan_year0" + i).style.backgroundColor = "gray";
-    document.getElementById("loan_year0" + i).style.color = "white";
-    document.getElementById("loan_amt0" + i).value = defaultLoanAmount.toFixed(2);
-    document.getElementById("loan_int0" + i).value = defaultInterestRate;
-    document.getElementById("loan_int0" + i).disabled = true;
-    document.getElementById("loan_int0" + i).style.backgroundColor = "gray";
-    document.getElementById("loan_int0" + i).style.color = "white";
-   loanWithInterest = (loanWithInterest + defaultLoanAmount) * (1 + defaultInterestRate);
-   document.getElementById("loan_bal0" + i).innerHTML = toComma(loanWithInterest.toFixed(2));
+    $("#loan_year0" + i).val(defaultYear++);
+    $("#loan_year0" + i).attr("disabled","true");
+    $("#loan_year0" + i).css("backgournd-color","gray");
+    $("#loan_year0" + i).css("color","black");
+    $("#loan_amt0" + i).val(defaultLoanAmount.toFixed(2));
+    $("#loan_int0" + i).val(defaultInterestRate);
+    $("#loan_int0" + i).attr("disabled","true");
+    $("#loan_int0" + i).css("backgournd-color","gray");
+    $("#loan_int0" + i).css("color","black");
+    loanWithInterest = (loanWithInterest + defaultLoanAmount) * (1 + defaultInterestRate);
+    $("#loan_bal0" + i).text(toComma(loanWithInterest.toFixed(2)));
     } // end: "for" loop
-  
+  //-----------------------------------------------------------
   // all input fields: select contents on fucus
   $("input[type=text]").focus(function() {
     $(this).select();
@@ -222,27 +224,42 @@ function loadDoc() {
   }); 
   $("input[type=text]").blur(function() {
     $(this).css("background-color", "white");
+	updateLoansArray();
   });
-  
   // set focus to first year: messes up codepen
-  // $("#loan_year01").focus();
-  $("#loan_year01").blur( function() {
-    updateLoansArray();
-  });
+  $("#loan_year01").focus();
+  //$("#loan_year01").blur( function() {
+    //updateLoansArray();
+  //});
   
-} // end: function loadDoc()
-
-
+//} // end: function loadDoc()
+});
+//-----------------------------------------------------------
 function toComma(value) {
     return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
-
+//-----------------------------------------------------------
 function updateLoansArray() {
   loans[0].loan_year = parseInt($("#loan_year01").val());
   for(var i=1; i<5; i++) {
     loans[i].loan_year = loans[0].loan_year + i;
     $("#loan_year0"+ (i+1) ).val(loans[i].loan_year);
   }
+}
+function refreshForm() {
+  let total=0;
+  loanWithInterest=0;
+  for(i=1;i<6;i++){
+    $("#loan_year0"+i).val(loans[i-1].loan_year);
+	let amount= loans[i-1].loan_amount;
+	$("#loan_amt0"+i).val(amount);
+	total=total+parseFloat(amount);
+	$("#loan_int0"+i).val(loans[i-1].loan_int_rate);
+	loanWithInterest= (parseFloat(amount)+loanWithInterest)*(loans[0].loan_int_rate +1);
+	$("#loan_bal0"+i).text(toComma(loanWithInterest.toFixed(2)));
+  }
+  let num=loanWithInterst-totalAmt;
+  $("#loan_int_accrued").text(toComma(num.toFixed(2)));
 }
 	</script>
   </body>
